@@ -7,31 +7,20 @@ const graph = {
   f: []
 }
 
-/*****************************
- *** recursive way ***********
- *****************************/
-const breadthFirstRecursion = (graph, source) => {
-  console.log(source)
-
-  for (let neighbor of graph[source]) {
-    breadthFirstRecursion(graph, neighbor)
-  }
-
-  return 0
-}
-
-console.log(breadthFirstRecursion(graph, "a"))
+/*
+ No recursive way, because we need a queue to implement the breadthFirst algo, and recursion is a stack technique
+*/
 
 /*****************************
  *** iterative way ***********
  *****************************/
 const breadthFirstIteration = (graph, source) => {
-  let stack = [source]
+  let queue = [source]
 
-  while (stack.length > 0) {
-    const node = stack.pop()
+  while (queue.length > 0) {
+    const node = queue.shift()
     console.log(node)
-    stack = [...stack, ...graph[node]]
+    queue = [...queue, ...graph[node]]
   }
 
   return 0
