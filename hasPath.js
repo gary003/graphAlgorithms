@@ -21,6 +21,18 @@ const hasPathRecursive = (graph, src, dest) => {
 
 console.log(hasPathRecursive(graph, "a", "f"))
 
+const hasPathRecursive2 = (graph, src, dest) => {
+  if (src === dest) return true
+
+  for (let neighbor of graph[src]) {
+    if (hasPathRecursive2(graph, neighbor, dest)) return true
+  }
+
+  return false
+}
+
+console.log(hasPathRecursive2(graph, "a", "f"))
+
 /*****************************
  *** iterative way ***********
  *****************************/
