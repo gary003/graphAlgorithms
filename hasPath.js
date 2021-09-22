@@ -21,6 +21,9 @@ const hasPathRecursive = (graph, src, dest) => {
 
 console.log(hasPathRecursive(graph, "a", "f"))
 
+/******************************
+ *** recursive way 2  *********
+ *****************************/
 const hasPathRecursive2 = (graph, src, dest) => {
   if (src === dest) return true
 
