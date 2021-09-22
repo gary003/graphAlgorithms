@@ -15,29 +15,36 @@ const connectedComponentsCount = (graph, visited = new Set()) => {
   for (let node in graph) {
     if (visited.has(String(node))) continue
     composentCount += 1
-    exploreRecursive(graph, node, visited)
+    explore(graph, node, visited)
   }
 
   return composentCount
 }
 
-const exploreRecursive = (graph, source, visited) => {
+/******************************
+ *** recursive way    *********
+ *****************************/
+const explore = (graph, source, visited) => {
   visited.add(String(source))
   for (let neighbor of graph[source]) {
     if (visited.has(String(neighbor))) continue
-    exploreRecursive(graph, neighbor, visited)
+    explore(graph, neighbor, visited)
   }
 }
 
-const exploreIterative = (graph, source, visited) => {
-  const queue = [source]
-  while (queue.length > 0) {
-    const currentNode = queue.shift()
-    visited.add(String(currentNode))
-    const unvisitedNeighbors = graph[currentNode].filter((neighbor) => !visited.has(neighbor))
-    queue.push(...unvisitedNeighbors)
-  }
-}
+/*****************************
+ *** iterative way ***********
+ *****************************/
+
+// const explore = (graph, source, visited) => {
+//   const queue = [source]
+//   while (queue.length > 0) {
+//     const currentNode = queue.shift()
+//     visited.add(String(currentNode))
+//     const unvisitedNeighbors = graph[currentNode].filter((neighbor) => !visited.has(neighbor))
+//     queue.push(...unvisitedNeighbors)
+//   }
+// }
 
 console.log(
   connectedComponentsCount(gph),
