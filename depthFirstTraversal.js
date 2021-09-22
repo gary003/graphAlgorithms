@@ -1,3 +1,4 @@
+// this graph is acyclic
 const graph = {
   a: ["c", "b"],
   b: ["d"],
