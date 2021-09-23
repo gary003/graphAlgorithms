@@ -14,4 +14,4 @@ git repository : https://gitlab.com/EfficienceSell/BackCollecte.git
 
 Get to know graphs
 
-- freeCodeCamp (youtube video)
+- structy website : problems 38 to 44
