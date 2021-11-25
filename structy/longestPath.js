@@ -6,7 +6,7 @@ Consider the length as the number of edges in the path, not the number of nodes.
 If there is no path between A and B, then return -1.
 */
 
-const graphFromEList = (e_list) => {
+const undirectedGraphFromEdgeList = (e_list) => {
   const graph = {}
 
   for (let edge of e_list) {
@@ -21,7 +21,7 @@ const graphFromEList = (e_list) => {
 }
 
 const longestPath = (edges, nodeStart, nodeEnd) => {
-  const graph = graphFromEList(edges)
+  const graph = undirectedGraphFromEdgeList(edges)
   let pathsFound = []
 
   let stack = [nodeStart]
@@ -71,4 +71,4 @@ const arrTest = [
   ["g", "f"]
 ]
 
-console.log(longestPath(arrTest, "a", "e"))
+console.log(longestPath(arrTest, "e", "b"))

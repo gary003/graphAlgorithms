@@ -6,7 +6,7 @@ Consider the length as the number of edges in the path, not the number of nodes.
 If there is no path between A and B, then return -1.
 */
 
-const graphFromEList = (e_list) => {
+const undirectedGraphFromEdgeList = (e_list) => {
   const graph = {}
 
   for (let edge of e_list) {
@@ -21,7 +21,7 @@ const graphFromEList = (e_list) => {
 }
 
 const shortestPath = (edges, nodeA, nodeB, visited = new Set()) => {
-  const graph = graphFromEList(edges)
+  const graph = undirectedGraphFromEdgeList(edges)
 
   const queue = [[nodeA, 0]]
 
@@ -41,21 +41,20 @@ const shortestPath = (edges, nodeA, nodeB, visited = new Set()) => {
   return -1
 }
 
-console.log(
-  shortestPath(
-    [
-      ["a", "c"],
-      ["a", "b"],
-      ["c", "b"],
-      ["c", "d"],
-      ["b", "d"],
-      ["e", "d"],
-      ["g", "f"]
-    ],
-    "e",
-    "c"
-  )
-)
+const arrTest = [
+  ["a", "c"],
+  ["a", "b"],
+  ["c", "b"],
+  ["c", "d"],
+  ["b", "d"],
+  ["b", "e"],
+  ["e", "d"],
+  ["d", "g"],
+  ["f", "e"],
+  ["g", "f"]
+]
+
+console.log(shortestPath(arrTest, "e", "b"))
 
 /* 
 {
